@@ -6,6 +6,7 @@ export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Links',
   };
+
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -15,9 +16,11 @@ export default class LinksScreen extends React.Component {
          */}
         <ExpoLinksView />
       </ScrollView>
-    );
+    )
+
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {

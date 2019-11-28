@@ -13,7 +13,7 @@ import Screen2 from "../screens/Screen2"
 const HomeStack = createStackNavigator({
     Home: HomeScreen,
     Screen1: Screen1,
-    Screen2: screen2
+    Screen2: Screen2
   });
 
 HomeStack.navigationOptions = {
@@ -36,7 +36,7 @@ const LinksStack = createStackNavigator(
   {
     Links: LinksScreen,
   },
-  config
+
 );
 
 LinksStack.navigationOptions = {
@@ -52,7 +52,6 @@ const SettingsStack = createStackNavigator(
   {
     Settings: SettingsScreen,
   },
-  config
 );
 
 SettingsStack.navigationOptions = {
