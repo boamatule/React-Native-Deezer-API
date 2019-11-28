@@ -7,17 +7,14 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {},
-});
+import Screen1 from "../screens/Screen1";
+import Screen2 from "../screens/Screen2"
 
-const HomeStack = createStackNavigator(
-  {
+const HomeStack = createStackNavigator({
     Home: HomeScreen,
-  },
-  config
-);
+    Screen1: Screen1,
+    Screen2: screen2
+  });
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
