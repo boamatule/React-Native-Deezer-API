@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Image } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
+import { readAsStringAsync } from 'expo-file-system';
 
 export default class AlbumsScreen extends React.Component {
   static navigationOptions = {
@@ -10,41 +11,45 @@ export default class AlbumsScreen extends React.Component {
   constructor() {
     super();
     this.state = {
-      cardName: 'Some Album'
+      albums: [
+        {
+          title: 'MAKAVELI',
+          image: 'https://behindtherhymes.files.wordpress.com/2016/11/makaveli-cover.jpg?w=640'
+        },
+        {
+          title: 'MAKAVELI',
+          image: 'https://behindtherhymes.files.wordpress.com/2016/11/makaveli-cover.jpg?w=640'
+        },
+        {
+          title: 'MAKAVELI',
+          image: 'https://behindtherhymes.files.wordpress.com/2016/11/makaveli-cover.jpg?w=640'
+        }
+      ] 
+     }
     }
-    this.cardNumber = 0;
-  }
 
-  changeCardName() {
-    this.setState({
-      cardName: `I am new CardName ${this.cardNumber}`
-    });
-    this.cardNumber++;
-  }
+    renderAlbums() {
+      const { albums } = this.state;
+
+      return albums.map((album, index) => {
+        return (
+          <Card
+            title={album.title}
+            image={{uri: album.image}}>
+            <Button
+              icon={<Icon name='code' color='#ffffff' />}
+              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+              title='VIEW NOW' />
+          </Card>
+        )
+      })
+    }
 
   render() {
-    const { cardName } = this.state;
+    const { albums } = this.state;
     return (
       <ScrollView style={styles.container}>
-        <Card
-          title={cardName}>
-          <Text style={{marginBottom: 10}}>
-            The idea with React Native Elements is more about component structure than actual design.
-          </Text>
-          <Button
-            icon={<Icon name='code' color='#ffffff' />}
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW' />
-        </Card>
-
-        <Button
-          icon={<Icon name='code' color='#ffffff' />}
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='Change Card Name' 
-          onPress={() => { this.changeCardName() }} />
-          
-
-        
+        { this.renderAlbums() }    
       </ScrollView>
     )
 
