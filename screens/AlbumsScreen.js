@@ -4,6 +4,8 @@ import { Text, Card, Button, Icon } from  'react-native-elements';
 import { readAsStringAsync } from 'expo-file-system';
 import { CardList } from '../components/CardList';
 
+import * as actions from '../actions';
+
 export default class AlbumsScreen extends React.Component {
   static navigationOptions = {
     title: 'Albums',
@@ -27,6 +29,12 @@ export default class AlbumsScreen extends React.Component {
         }
       ] 
      }
+
+     actions.searchTracks('2Pac').then(
+       (albums) => {
+        debugger;
+       }
+     );
     }
 
   render() {
