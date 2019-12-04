@@ -1,8 +1,9 @@
 import React from 'react';
+import { View }  from 'react-native';
 import { Card, Button, Text, Icon } from 'react-native-elements';
 
-export class CardList extends React.Component {
 
+export class CardList extends React.Component {
   renderData() {
       const { data, imageKey, titleKey, buttonText } = this.props;
 
@@ -21,8 +22,16 @@ export class CardList extends React.Component {
       })
     }
 
-
   render() {
-    return this.renderData();
+    const { data } = this.props;
+
+    if (data && data.length > 0) {
+      return this.renderData();
+    } else {
+      return 
+        <View> 
+          <Text> Loading Data...</Text>
+        </View>
+    }  
   }
 }
