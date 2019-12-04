@@ -1,9 +1,8 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Image } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
-import { readAsStringAsync } from 'expo-file-system';
 import { CardList } from '../components/CardList';
-import { SearchText } from  '../components/SearchText'
+import { SearchText } from '../components/SearchText';
 
 import * as actions from '../actions';
 

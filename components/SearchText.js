@@ -1,18 +1,36 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 
+export default class SearchText extends React.Component {
 
-export class SearchText extends React.Component {
-    render() {
-  return (
-    <React.Fragment> 
-      <FormLabel>Search an artist</FormLabel>
-      <FormInput onChangeText={() => {}}/>
-      <Button tittle='search' onPress={() => {}}/>
-    </React.Fragment>
+  constructor() {
+    super();
 
+    this.state = {
+      value: ''
+    }
+  }
+  onChange(value) {
+    this.setState({value});
+  }
+  submitSearch() {
+    console.log(this.state.value);
+  }
+  
+  render() {
+    return (
+      <React.Fragment> 
+        <FormLabel containerStyle={styles.center}>Search an artist</FormLabel>
+        <FormInput onChangeText={(event) => this.onChange(event) }/>
+        <Button title='Search' onPress={() => this.submitSearch() }/>
+      </React.Fragment>
     )
   }
 }
 
+const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center'
+  }
+})
