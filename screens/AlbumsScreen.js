@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Image } from 'react-native';
-import { Text, Card, Button, Icon } from  'react-native-elements';
+// import { Text, Card, Button, Icon } from  'react-native-elements';
 import { readAsStringAsync } from 'expo-file-system';
 import { CardList } from '../components/CardList';
 
@@ -14,27 +14,9 @@ export default class AlbumsScreen extends React.Component {
   constructor() {
     super();
     this.state = {
-      albums: [
-        {
-          title: 'MAKAVELI',
-          image: 'https://behindtherhymes.files.wordpress.com/2016/11/makaveli-cover.jpg?w=640'
-        },
-        {
-          title: 'MAKAVELI',
-          image: 'https://behindtherhymes.files.wordpress.com/2016/11/makaveli-cover.jpg?w=640'
-        },
-        {
-          title: 'MAKAVELI',
-          image: 'https://behindtherhymes.files.wordpress.com/2016/11/makaveli-cover.jpg?w=640'
-        }
-      ] 
+      albums: [] 
      }
-
-     actions.searchTracks('2Pac').then(
-       (albums) => {
-        debugger;
-       }
-     );
+    actions.searchTracks('2 Pac').then(albums => this.setState({albums}));
     }
 
   render() {
@@ -42,7 +24,7 @@ export default class AlbumsScreen extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <CardList data={albums}
-                  imageKey={'image'}
+                  imageKey={'cover_big'}
                   titleKey={'title'}
                   buttonText="See the details"></CardList>
       </ScrollView>
