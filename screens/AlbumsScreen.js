@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Image } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { readAsStringAsync } from 'expo-file-system';
 import { CardList } from '../components/CardList';
+import { SearchText } from  '../components/SearchText'
 
 import * as actions from '../actions';
 
@@ -25,6 +26,7 @@ export default class AlbumsScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
+        <SearchText></SearchText>
         <CardList data={ albums } 
                   imageKey={'cover_big'}
                   titleKey={'title'}
