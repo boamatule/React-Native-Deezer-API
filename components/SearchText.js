@@ -1,21 +1,27 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements';
 
 export default class SearchText extends React.Component {
 
   constructor() {
     super();
-
     this.state = {
       value: ''
     }
   }
+
+  componentDidMount() {
+    this.input.focus();
+  }
+
   onChange(value) {
     this.setState({value});
   } 
-  submitSearch() {
-    console.log(this.state.value);
+
+  onSubmitSearch() {
+    const { submitSearch } = this.props;
+    submitSearch(this.state.value);
   }
   
   render() {
@@ -23,7 +29,8 @@ export default class SearchText extends React.Component {
       <React.Fragment> 
         <FormLabel containerStyle={styles.center}>Search an artist</FormLabel>
         <FormInput onChangeText={(event) => this.onChange(event) }/>
-        <Button title='Search' onPress={() => this.submitSearch() }/>
+        <FormValidationMessage></FormValidationMessage>
+        <Button title='Search' onPress={() => this.onSubmitSearch() }/>
       </React.Fragment>
     )
   }
