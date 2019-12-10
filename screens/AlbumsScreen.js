@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { CardList } from '../components/CardList';
-import { SearchText } from '../components/SearchText';
+import { SearchText }  from '../components/SearchText';
 
 import * as actions from '../actions';
 
@@ -15,7 +15,7 @@ export default class AlbumsScreen extends React.Component {
     super();
 
     this.state = {
-      albums: null 
+      albums: [] 
      }
     actions.searchTracks('2 Pac').then(albums => this.setState({albums}));
     }
@@ -25,7 +25,7 @@ export default class AlbumsScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        <SearchText></SearchText>
+        <SearchText> </SearchText>
         <CardList data={ albums } 
                   imageKey={'cover_big'}
                   titleKey={'title'}

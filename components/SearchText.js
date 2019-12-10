@@ -13,7 +13,7 @@ export default class SearchText extends React.Component {
   }
   onChange(value) {
     this.setState({value});
-  }
+  } 
   submitSearch() {
     console.log(this.state.value);
   }

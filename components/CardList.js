@@ -2,7 +2,6 @@ import React from 'react';
 import { View }  from 'react-native';
 import { Card, Button, Text, Icon } from 'react-native-elements';
 
-
 export class CardList extends React.Component {
   renderData() {
       const { data, imageKey, titleKey, buttonText } = this.props;
