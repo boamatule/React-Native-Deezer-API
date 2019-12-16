@@ -2,7 +2,8 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { CardList } from '../components/CardList';
-import { SearchText }  from '../components/SearchText';
+import  SearchText   from '../components/SearchText';
+// import SearchNow from '../components/SearchNow';
 
 import * as actions from '../actions';
 
@@ -17,7 +18,6 @@ export default class AlbumsScreen extends React.Component {
       albums: [],
       isFetching: false
      }
-
      this.searchTracks = this.searchTracks.bind(this);
     }
 
@@ -43,7 +43,7 @@ export default class AlbumsScreen extends React.Component {
           }
           {
             albums.length === 0 && isFetching && 
-            <Text>Loading Albums</Text>
+            <Text>Loading Albums...</Text>
           }
         </ScrollView>
 
