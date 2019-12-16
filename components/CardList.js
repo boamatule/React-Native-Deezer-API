@@ -12,7 +12,7 @@ export class CardList extends React.Component {
             key={index}
             title={item[titleKey]}
             image={{uri: item[imageKey]}}>
-            { bottomView() }
+            { bottomView }
           </Card>
         )
       })

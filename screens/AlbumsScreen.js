@@ -31,22 +31,22 @@ export default class AlbumsScreen extends React.Component {
 
     renderBottomNavigation() {
       return (
-        <View>
+        <View style={styles.albumMenu}>
           <Icon onPress={() => {}}
                 raised
-                name='music'
+                name='play'
                 type='font-awesome'
                 color='#f50'
                 size={30}/>
           <Icon onPress={() => {}}
                 raised
-                name='music'
+                name='info'
                 type='font-awesome'
                 color='#f50'
                 size={30}/> 
           <Icon onPress={() => {}}
                 raised
-                name='music'
+                name='thumbs-up'
                 type='font-awesome'
                 color='#f50'
                 size={30}/> 
@@ -66,7 +66,7 @@ export default class AlbumsScreen extends React.Component {
                       imageKey={'cover_big'}
                       titleKey={'title'}
                       bottonText="See the details"
-                      bottomView={this.renderBottomNavigation}>
+                      bottomView={this.renderBottomNavigation()}>
             </CardList>
           }
           {
@@ -89,4 +89,8 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  albumMenu: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 });
