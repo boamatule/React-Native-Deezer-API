@@ -4,7 +4,7 @@ import { Card, Button, Text, Icon } from 'react-native-elements';
 
 export class CardList extends React.Component {
   renderData() {
-      const { data, imageKey, titleKey, bottonText, bottomView} = this.props;
+      const { data, imageKey, titleKey, bottonText, bottonView } = this.props;
 
       return data.map((item, index) => {
         return (
@@ -12,7 +12,7 @@ export class CardList extends React.Component {
             key={index}
             title={item[titleKey]}
             image={{uri: item[imageKey]}}>
-            { bottomView }
+            { bottonView(item) }
           </Card>
         )
       })
@@ -25,7 +25,7 @@ export class CardList extends React.Component {
       return this.renderData();
     } else {
       return (
-        <View> </View>
+        <View></View>
       )
     }  
   }

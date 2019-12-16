@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text } from  'react-native';
-import { ExpoLinksView } from 'expo/samples';
+import { ExpoLinksView } from '@expo/samples';
+
 
 
 
@@ -10,9 +11,12 @@ export default class AlbumDetailScreen extends React.Component {
   };
 
     render() {
+      const album = this.props.navigation.getParam('album', {});
+      console.log(album);
+
       return (
         <ScrollView style={styles.container}>
-          <View> <Text>Album Detail View! </Text></View>
+          <View><Text>{album.title}</Text></View>
         </ScrollView>
       );
     }
