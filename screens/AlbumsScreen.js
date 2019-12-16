@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { CardList } from '../components/CardList';
 import  SearchText   from '../components/SearchText';
@@ -19,6 +19,7 @@ export default class AlbumsScreen extends React.Component {
       isFetching: false
      }
      this.searchTracks = this.searchTracks.bind(this);
+     this.renderBottomNavigation = this.renderBottomNavigation.bind(this);
     }
 
     searchTracks(artist) {
@@ -26,6 +27,32 @@ export default class AlbumsScreen extends React.Component {
       actions.searchTracks(artist)
       .then(albums => this.setState({albums, isFetching: false}))
       .catch(err => this.setState({albums: [], isFetching: false}));
+    }
+
+    renderBottomNavigation() {
+      return (
+        <View>
+          <Icon onPress={() => {}}
+                raised
+                name='music'
+                type='font-awesome'
+                color='#f50'
+                size={30}/>
+          <Icon onPress={() => {}}
+                raised
+                name='music'
+                type='font-awesome'
+                color='#f50'
+                size={30}/> 
+          <Icon onPress={() => {}}
+                raised
+                name='music'
+                type='font-awesome'
+                color='#f50'
+                size={30}/> 
+        </View>
+
+      )
     }
 
     renderAlbumView() {
@@ -38,7 +65,8 @@ export default class AlbumsScreen extends React.Component {
             <CardList data={ albums } 
                       imageKey={'cover_big'}
                       titleKey={'title'}
-                      buttonText="See the details">
+                      bottonText="See the details"
+                      bottomView={this.renderBottomNavigation}>
             </CardList>
           }
           {

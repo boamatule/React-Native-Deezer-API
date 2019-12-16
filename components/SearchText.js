@@ -11,9 +11,9 @@ export default class SearchText extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.input.current.focus();
-  }
+  // componentDidMount() {
+  //   this.input.current.focus();
+  // }
 
   onChange(value) {
     this.setState({value});
@@ -28,7 +28,7 @@ export default class SearchText extends React.Component {
       <View> 
         <Input placeholder = 'Search an artist'
                     onChangeText={(event) => this.onChange(event)}
-                    ref={input}
+                    // ref={input}
         />
         <Button title='Search' onPress={() => this.onSubmitSearch()} />
       </View>
