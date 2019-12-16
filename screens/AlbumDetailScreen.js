@@ -1,16 +1,29 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text } from  'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import * as actions from '../actions';
 
 export default class AlbumDetailScreen extends React.Component {
   static navigationOptions = {
-    title: 'Album Details',
+    title: 'Album Detail',
   };
+
+  constructor() {
+    super();
+
+    this.state = {
+      tracks: []
+    }
+  }
 
   componentDidMount() {
     const album = this.props.navigation.getParam('album', {});
 
-  }
+    actions.getAlbumTracks(album.id).then(
+      tracks => {
+        this.setState({tracks});
+      })
+      .catch(error => console.error(error))
+    }
 
     render() {
       const album = this.props.navigation.getParam('album', {});
