@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 
 export default class SearchText extends React.Component {
@@ -7,7 +7,7 @@ export default class SearchText extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: ''
+      value: '',
     }
   }
 
@@ -25,12 +25,14 @@ export default class SearchText extends React.Component {
   
   render() {
     return (
-      <View> 
-        <Input placeholder = 'Search an artist'
-                    onChangeText={(event) => this.onChange(event)}
-                    // ref={input}
+      <View > 
+        <Input  placeholder = 'Search an artist'
+                onChangeText={(event) => this.onChange(event)}
+                // ref={this.input}
+                errorStyle={{ color: 'red' }}
+                errorMessage=''
         />
-        <Button title='Search' onPress={() => this.onSubmitSearch()} />
+        <Button title='Search' onPress={() => this.onSubmitSearch()}/>
       </View>
      
     )
