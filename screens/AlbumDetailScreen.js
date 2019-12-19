@@ -58,11 +58,13 @@ export default class AlbumDetailScreen extends React.Component {
       if (album.id) {
         return (
           <ScrollView style={styles.container}>
-            <View>
-              <Avatar xlarge rounded source={{uri: album.cover_medium}}> </Avatar>
-              <View>
-                <Text h4> {album.title} </Text>
-                <Text h4> {artist} </Text>
+            <View style={styles.header}>
+              <View style={styles.avatar}>
+                <Avatar xlarge rounded source={{uri: album.cover_medium}}> </Avatar>
+              </View>
+              <View style={styles.headerRight}>
+                <Text style={styles.mainText} h4> {album.title} </Text>
+                <Text style={styles.subText } h4> {artist} </Text>
                 <Icon raised
                       name='play'
                       type='font-awesome'
@@ -72,9 +74,9 @@ export default class AlbumDetailScreen extends React.Component {
               </View>
             </View>
             <Divider style={{backgroundColor: 'black'}}/>
-            <List>
+            {/* <List containerStyle={{paddingTop: 0}}>
             { this.renderTracks() }
-            </List>
+            </List> */}
           </ScrollView>
         )
       } else {
@@ -85,9 +87,33 @@ export default class AlbumDetailScreen extends React.Component {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      paddingTop: 15,
-      backgroundColor: '#fff',
+      flex: 1
     },
+    header: {
+      flex: 1,
+      justifyContent: 'center',
+      flexDirection: 'row',
+      backgroundColor: '#fff',
+      padding: 20
+    },
+     avatar: {
+      flex: 1,
+      marginRight: 20
+    },
+    headerRight: {
+      flex: 1,
+      flexWrap: 'wrap',
+      justifyContent: 'flex-end',
+      flexDirection: 'column'
+    },
+    mainText: {
+      fontWeight: 'bold',
+      color: '#3a3a3a',
+      fontSize: 17
+    },
+    subText: {
+      color: '#3a3a3a',
+      fontSize: 17
+    }
   });
-
+  
