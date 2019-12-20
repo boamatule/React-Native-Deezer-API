@@ -13,6 +13,27 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
+const menuList = [
+  {
+    title: 'Search Albums',
+    subtitle: 'Search your favorite music',
+    icon: 'music',
+    navigateTo: 'Albums'
+  },
+  {
+    title: 'Favorite Collections',
+    subtitle: 'Access your favorite albums',
+    icon: 'heart',
+    navigateTo: '#'
+  },
+  {
+    title: 'Settings',
+    subtitle: 'Customize your app',
+    icon: 'cog',
+    navigateTo: '#'
+  }
+]
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
