@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from  'react-native';
+import { ScrollView, StyleSheet, View, Linking } from  'react-native';
 import { Avatar,Text, Icon, Divider, FlatList, ListItem } from 'react-native-elements';
 
 import * as actions from '../actions';
@@ -71,7 +71,7 @@ export default class AlbumDetailScreen extends React.Component {
                       type='font-awesome'
                       color='#f50'
                       size={30}
-                      onPress={() => {}} />
+                      onPress={() => Linking.openURL(this.state.tracks[0].preview)} />
               </View>
             </View>
             <Divider style={{backgroundColor: 'black'}}/>
