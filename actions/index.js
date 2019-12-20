@@ -1,5 +1,6 @@
-import axios from 'axios'
-import _ from 'lodash'
+import axios from 'axios';
+import _ from 'lodash';
+import { AsyncStorage } from 'react-native'
 
 const API_KEY = 'bdb11fddf6msh306d9980f566ee8p138cc2jsnacd2bd7d40fa';
 
@@ -29,17 +30,18 @@ export const storeData = async (key, value) => {
 
   try {
     await AsyncStorage.setItem(key, stringfyValue);
+    return value;
   } catch (error) {
     // Error saving data
   }
 };
 
-export const retrieveData = async () => {
+export const retrieveData = async (key) => {
   try {
     const value = await AsyncStorage.getItem(key);
     if (value !== null) {
       // We have data!!
-      console.log(value);
+      // console.log(value);
       const parsedValue = JSON.parse(value);
       return JSON.parse(parse);
     }
@@ -47,3 +49,12 @@ export const retrieveData = async () => {
     // Error retrieving data
   }
 };
+
+export const clearStorage = async () => {
+  try {
+    await AsyncStorage();
+    return true;
+  } catch (error) {
+    // Error saving data
+  }
+}
