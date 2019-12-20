@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Input, Button } from 'react-native-elements';
+import { Input, Button, Divider } from 'react-native-elements';
 
 export default class SearchText extends React.Component {
 

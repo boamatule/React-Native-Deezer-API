@@ -1,7 +1,8 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from  'react-native';
+import { Avatar,Text, Icon, Divider, FlatList, ListItem } from 'react-native-elements';
+
 import * as actions from '../actions';
-import { Avatar,Text, Icon, Divider, List, ListItem } from 'react-native-elements';
 
 export default class AlbumDetailScreen extends React.Component {
   static navigationOptions = {
@@ -74,9 +75,9 @@ export default class AlbumDetailScreen extends React.Component {
               </View>
             </View>
             <Divider style={{backgroundColor: 'black'}}/>
-            {/* <List containerStyle={{paddingTop: 0}}>
-            { this.renderTracks() }
-            </List> */}
+            {/* <FlatList containerStyle={{paddingTop: 0}}> */}
+              {this.renderTracks()}
+            {/* </FlatList> */}
           </ScrollView>
         )
       } else {
