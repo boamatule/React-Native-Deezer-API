@@ -37,7 +37,7 @@ export default class AlbumDetailScreen extends React.Component {
             <ListItem key={index}
                       title={track.title}
                       leftIcon={{name: 'play-arrow'}}
-                      onPress={() => {}}
+                      onPress={() => Linking.openURL(track.preview)}
                       rightIcon={
                         <Icon raised
                               name='star'
