@@ -23,3 +23,27 @@ export const getAlbumTracks = albumId => {
   return axiosInstance.get(`album/${albumId}`).then(
   response => response.data.tracks.data);
 }
+
+export const storeData = async (key, value) => {
+  const stringfyValue = JSON.stringify(value);
+
+  try {
+    await AsyncStorage.setItem(key, stringfyValue);
+  } catch (error) {
+    // Error saving data
+  }
+};
+
+export const retrieveData = async () => {
+  try {
+    const value = await AsyncStorage.getItem(key);
+    if (value !== null) {
+      // We have data!!
+      console.log(value);
+      const parsedValue = JSON.parse(value);
+      return JSON.parse(parse);
+    }
+  } catch (error) {
+    // Error retrieving data
+  }
+};

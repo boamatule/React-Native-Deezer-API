@@ -6,14 +6,17 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+
 import AlbumsScreen from '../screens/AlbumsScreen';
 import AlbumDetailScreen from '../screens/AlbumDetailScreen';
+import StorageScreen from '../screens/StorageScreen'
 
 
 const HomeStack = createStackNavigator({
     Home: HomeScreen,
     Albums: AlbumsScreen,
     AlbumDetail: AlbumDetailScreen
+
   });
 
 HomeStack.navigationOptions = {
@@ -51,6 +54,7 @@ LinksStack.path = '';
 const SettingsStack = createStackNavigator(
   {
     Settings: SettingsScreen,
+    Storage: StorageScreen
   },
 );
 
@@ -66,7 +70,7 @@ SettingsStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
+  SettingsStack
 });
 
 tabNavigator.path = '';
