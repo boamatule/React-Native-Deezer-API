@@ -40,9 +40,6 @@ export const retrieveData = async (key) => {
   try {
     const value = await AsyncStorage.getItem(key);
     if (value !== null) {
-      // We have data!!
-      // console.log(value);
-      const parsedValue = JSON.parse(value);
       return JSON.parse(parse);
     }
   } catch (error) {
@@ -52,7 +49,7 @@ export const retrieveData = async (key) => {
 
 export const clearStorage = async () => {
   try {
-    await AsyncStorage();
+    await AsyncStorage.clear();
     return true;
   } catch (error) {
     // Error saving data

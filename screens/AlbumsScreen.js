@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { CardList } from '../components/CardList';
 import  SearchText   from '../components/SearchText';
-// import SearchNow from '../components/SearchNow';
 
 import * as actions from '../actions';
 
@@ -30,6 +29,22 @@ export default class AlbumsScreen extends React.Component {
       .catch(err => this.setState({albums: [], isFetching: false}));
     }
 
+    async saveAlbumToFavorite(album) {
+      const favoriteAlbums = await actions.retrieveData('favoriteAlbums') || {};
+
+      if (favoriteAlbums[album.id]) {
+        //Display some message to warn user
+        return false;
+      }
+
+      favoriteAlbums[album.id] = album;
+      const success = await actions.storeData('favoriteAlbums',  favoriteAlbums)
+
+      if (success) {
+        console.log(success)
+      }
+    }
+
     renderBottomNavigation(album) {
       const {artist} = this.state;
       return (
@@ -46,7 +61,7 @@ export default class AlbumsScreen extends React.Component {
                 type='font-awesome'
                 color='#f50'
                 size={30}/> 
-          <Icon onPress={() => {}}
+          <Icon onPress={() => this.saveAlbumToFavorite(album)}
                 raised
                 name='thumbs-up'
                 type='font-awesome'
