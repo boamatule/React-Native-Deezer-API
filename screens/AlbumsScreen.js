@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, Alert } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { CardList } from '../components/CardList';
 import  SearchText   from '../components/SearchText';
@@ -33,7 +33,14 @@ export default class AlbumsScreen extends React.Component {
       const favoriteAlbums = await actions.retrieveData('favoriteAlbums') || {};
 
       if (favoriteAlbums[album.id]) {
-        //Display some message to warn user
+        Alert.alert(
+          'Cannot add Album!',
+          'Album is already in the Favorites!',
+          [
+            {text: 'Continue', onPress: () => console.log('OK Pressed')},
+          ],
+          {cancelable: false},
+        );
         return false;
       }
 
@@ -41,7 +48,14 @@ export default class AlbumsScreen extends React.Component {
       const success = await actions.storeData('favoriteAlbums',  favoriteAlbums)
 
       if (success) {
-        console.log(success)
+        Alert.alert(
+          'Album Added!',
+          'Album ${album.title} from ${this.state.artist} was added to the Favorites!',
+          [
+            {text: 'Continue', onPress: () => console.log('OK Pressed')},
+          ],
+          {cancelable: false},
+        );
       }
     }
 

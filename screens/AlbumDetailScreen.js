@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Linking } from  'react-native';
+import { ScrollView, StyleSheet, View, Linking, Alert } from  'react-native';
 import { Avatar,Text, Icon, Divider, FlatList, ListItem } from 'react-native-elements';
 
 import * as actions from '../actions';
@@ -21,9 +21,7 @@ export default class AlbumDetailScreen extends React.Component {
     const album = this.props.navigation.getParam('album', {});
 
     actions.getAlbumTracks(album.id).then(
-      tracks => {
-        this.setState({tracks});
-      })
+      tracks => this.setState({tracks}))
       .catch(error => console.error(error))
     }
 
@@ -40,14 +38,20 @@ export default class AlbumDetailScreen extends React.Component {
         albumData['tracks'] = {};
       }
 
-      albumData['tracks'][track.id] = tracks;
-
+      albumData['tracks'][track.id] = track;
       favoriteAlbums[album.id] = albumData;
 
       const success = actions.storeData('favoriteAlbums', favoriteAlbums)
 
       if (success) {
-        console.log
+        Alert.alert(
+          'Track Added!',
+          'Track ${track.title} from ${track.artist.name} was added to the Favorites!',
+          [
+            {text: 'Continue', onPress: () => console.log('OK Pressed')},
+          ],
+          {cancelable: false},
+        );
       }
     }
 
