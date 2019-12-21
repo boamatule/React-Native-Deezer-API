@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 
 import {List, ListItem, Icon, Card, Text} from 'react-native-elements'
-
 import { MonoText } from '../components/StyledText';
 
 const menuList = [
@@ -25,7 +24,7 @@ const menuList = [
     title: 'Favorite Collections',
     subtitle: 'Access your favorite albums',
     icon: 'heart',
-    navigateTo: '#'
+    navigateTo: 'Favorite'
   },
   {
     title: 'Settings',
@@ -34,7 +33,6 @@ const menuList = [
     navigateTo: '#'
   }
 ]
-
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',

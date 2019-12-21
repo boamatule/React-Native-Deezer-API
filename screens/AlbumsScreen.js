@@ -45,7 +45,7 @@ export default class AlbumsScreen extends React.Component {
       }
 
       favoriteAlbums[album.id] = album;
-      const success = await actions.storeData('favoriteAlbums',  favoriteAlbums)
+      const success = await actions.storeData('favoriteAlbums', favoriteAlbums);
 
       if (success) {
         Alert.alert(
