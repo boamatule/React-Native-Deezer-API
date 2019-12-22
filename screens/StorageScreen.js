@@ -35,7 +35,6 @@ export default class StorageScreen extends React.Component {
     const data = await actions.retrieveData('favoriteAlbums');
 
     if (data) {
-      debugger;
       console.log(data)
       // this.setState({
       //   value: data.value
