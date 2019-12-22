@@ -39,7 +39,8 @@ export default class FavoriteScreen extends React.Component {
                 raised
                 name='music'
                 type='font-awesome'
-                colo= '#f50' />
+                colo= '#f50'
+                onPress={() => Linking.openURL(track.preview)} />
             }
           />
         )
@@ -63,6 +64,7 @@ export default class FavoriteScreen extends React.Component {
                 name='trash'
                 onPress={() => {}}
              />
+             { this.renderFavoriteTra(album.tracks)}
             </Card>
           </View>
         )
@@ -93,3 +95,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#eaeaea'
   }
 });
+
+
