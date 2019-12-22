@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-native-elements'
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { Button, Divider, Text } from 'react-native-elements'
+import { ScrollView, StyleSheet, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 
 import * as actions from '../actions';
 
@@ -60,7 +60,24 @@ export default class StorageScreen extends React.Component {
         <Button title='retrieve data' onPress={ () => { this.retrieveData()}} />
         <Button title='delete data' onPress={ () => { this.removeData()}} />
 
-        <Text> {value} </Text>
+        <Text h4> {value} </Text>
+
+        <Divider style={{backgroundColor: 'black'}} />
+          <Text h3>Touchables</Text>
+
+  
+        <TouchableHighlight onPress={() => {}} onLongPress={this._onLongPressButton} underlayColor="white">
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Touchable with Long Press</Text>
+          </View>
+        </TouchableHighlight>
+
+        <TouchableOpacity onPress={() => {}}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>TouchableOpacity</Text>
+          </View>
+        </TouchableOpacity>
+
       </ScrollView>
     )
   }
@@ -72,4 +89,15 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  button: {
+    marginBottom: 30,
+    width: 260,
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
+  },
+  buttonText: {
+    textAlign: 'center',
+    padding: 20,
+    color: 'white'
+  }
 });
