@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, Linking } from 'react-native';
 import { Card, Button, List, Text, ListItem, Icon } from 'react-native-elements';
 import * as actions from '../actions';
 import _ from 'lodash'
@@ -62,9 +62,9 @@ export default class FavoriteScreen extends React.Component {
                 raised
                 backgroundColor='#f50'
                 name='trash'
-                onPress={() => {}}
+                // onPress={() => {}}
              />
-             { this.renderFavoriteTra(album.tracks)}
+             { this.renderFavoriteTracks(album.tracks)}
             </Card>
           </View>
         )
@@ -75,12 +75,11 @@ export default class FavoriteScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        {/* <List containerStyle={styles.listContainer}> */}
+        <View containerStyle={styles.listContainer}>
           {this.renderFavoriteAlbums()}
-        {/* </List> */}
+        </View>
       </ScrollView>
-    )
-
+    );
   }
 }
 
