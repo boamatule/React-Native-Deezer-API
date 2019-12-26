@@ -29,7 +29,7 @@ export default class FavoriteScreen extends React.Component {
   async deleteAlbum(albumId) {
     const { favoriteAlbums } = this.state;
 
-    delete favoriteAlbums(albumId);
+    delete favoriteAlbums[albumId];
 
     const success = await actions.storeData('favoriteAlbums', favoriteAlbums);
 
@@ -38,7 +38,7 @@ export default class FavoriteScreen extends React.Component {
     }
   }
 
-  renderFavoriteTracks() {
+  renderFavoriteTracks(tracks) {
     if (tracks) {
       return _.map(tracks, (track, id) => {
         return (
@@ -68,15 +68,15 @@ export default class FavoriteScreen extends React.Component {
         return (
           <View key={id}> 
             <Card
-            title={album.title}> 
-              <Button
-                title='Delete Album'
-                raised
-                backgroundColor='#f50'
-                name='trash'
-                onPress={() => this.deleteAlbum(album.id)}
-             />
-             { this.renderFavoriteTracks(album.tracks)}
+              title={album.title}> 
+                <Button
+                  title='Delete Album'
+                  raised
+                  backgroundColor='#f50'
+                  name='trash'
+                  onPress={() => this.deleteAlbum(album.id)}
+              />
+              { this.renderFavoriteTracks(album.tracks)}
             </Card>
           </View>
         )

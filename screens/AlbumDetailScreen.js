@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Linking, Alert } from  'react-native';
-import { Avatar,Text, Icon, Divider, FlatList, ListItem } from 'react-native-elements';
+import { Avatar,Text, Icon, Divider, List, ListItem } from 'react-native-elements';
 
 import * as actions from '../actions';
 
@@ -55,7 +55,7 @@ export default class AlbumDetailScreen extends React.Component {
       }
     }
 
-    renderTracks(album) {
+    renderTracks() {
       const {tracks} = this.state;
   
       if (tracks && tracks.length > 0) {
@@ -91,6 +91,7 @@ export default class AlbumDetailScreen extends React.Component {
               <View style={styles.avatar}>
                 <Avatar xlarge rounded source={{uri: album.cover_medium}}> </Avatar>
               </View>
+
               <View style={styles.headerRight}>
                 <Text style={styles.mainText} h4> {album.title} </Text>
                 <Text style={styles.subText } h4> {artist} </Text>
@@ -102,10 +103,17 @@ export default class AlbumDetailScreen extends React.Component {
                       onPress={() => Linking.openURL(this.state.tracks[0].preview)} />
               </View>
             </View>
+
+            
             <Divider style={{backgroundColor: 'black'}}/>
-            {/* <FlatList containerStyle={{paddingTop: 0}}> */}
-              {this.renderTracks()}
-            {/* </FlatList> */}
+
+            
+            <List containerStyle={{paddingTop: 0, marginTop: 0}}>
+ 
+              { this.renderTracks() }
+
+            </List>
+        
           </ScrollView>
         )
       } else {

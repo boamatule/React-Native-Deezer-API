@@ -30,7 +30,7 @@ const menuList = [
     title: 'Settings',
     subtitle: 'Customize your app',
     icon: 'cog',
-    navigateTo: '#'
+    navigateTo: 'Settings'
   }
 ]
 export default class HomeScreen extends React.Component {
@@ -40,29 +40,29 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* <List containerStyle={{backgroundColor: '#eaeaea', marginTop: 0}}> */}
-        {
-          menuList.map((item, index) => {
-            return (
-              <Card key={index}
-                    title={item.title}>
-                <View style={styles.cardView}> 
-                  <Text style={{marginBottom: 10}}> {item.subtitle}</Text>
-                  <Icon 
-                      raised
-                      name={item.icon}
-                      type='font-awesome'
-                      color='#f50'
-                      size={30}
-                      onPress={() => {this.props.navigation.navigate(item.navigateTo)}}/>
-                </View>
-              </Card>
-            )
-          })
-        }
-        {/* </List>       */}
-      </ScrollView>
+      <View style={styles.container}>
+        <View containerStyle={{backgroundColor: '#eaeaea', marginTop: 0}}>
+          {
+            menuList.map((item, index) => {
+              return (
+                <Card key={index}
+                      title={item.title}>
+                  <View style={styles.cardView}> 
+                    <Text style={{marginBottom: 10}}> {item.subtitle}</Text>
+                    <Icon 
+                        raised
+                        name={item.icon}
+                        type='font-awesome'
+                        color='#f50'
+                        size={30}
+                        onPress={() => {this.props.navigation.navigate(item.navigateTo)}}/>
+                  </View>
+                </Card>
+              )
+            })
+          }
+        </View>      
+      </View>
     );
   }
 }
