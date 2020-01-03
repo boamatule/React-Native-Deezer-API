@@ -55,7 +55,7 @@ export default class AlbumDetailScreen extends React.Component {
       }
     }
 
-    renderTracks() {
+    renderTracks(album) {
       const {tracks} = this.state;
   
       if (tracks && tracks.length > 0) {
@@ -108,11 +108,11 @@ export default class AlbumDetailScreen extends React.Component {
             <Divider style={{backgroundColor: 'black'}}/>
 
             
-            <List containerStyle={{paddingTop: 0, marginTop: 0}}>
+            {/* <List containerStyle={{paddingTop: 0, marginTop: 0}}> */}
  
-              { this.renderTracks() }
+              { this.renderTracks(album) }
 
-            </List>
+            {/* </List> */}
         
           </ScrollView>
         )
