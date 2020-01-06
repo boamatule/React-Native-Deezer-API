@@ -87,9 +87,9 @@ export default class FavoriteScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View containerStyle={styles.listContainer}>
+        {/* <List containerStyle={styles.listContainer}> */}
           {this.renderFavoriteAlbums()}
-        </View>
+        {/* </List> */}
       </ScrollView>
     );
   }
