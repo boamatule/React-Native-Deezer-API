@@ -52,6 +52,11 @@ export default class SignUpSignInScreen extends React.Component {
   }
 }
 
+ShowData = async() =>{
+  let loginDetails = await AsyncStorage.getItem('loginDetails');
+  let ld = JSON.parse(loginDetails);
+  alert('email: '+ ld.email + ' '+ 'password: ' + ld.password);
+}
 
 const styles = StyleSheet.create({
   container: {
