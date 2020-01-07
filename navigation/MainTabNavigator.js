@@ -4,14 +4,14 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+// import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 import AlbumsScreen from '../screens/AlbumsScreen';
 import AlbumDetailScreen from '../screens/AlbumDetailScreen';
 import StorageScreen from '../screens/StorageScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
-import SignUpSignInScreen from '../screens/SignUpInScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 
 const HomeStack = createStackNavigator({
@@ -19,7 +19,6 @@ const HomeStack = createStackNavigator({
     Albums: AlbumsScreen,
     AlbumDetail: AlbumDetailScreen,
     Favorite: FavoriteScreen,
-    Login: SignUpSignInScreen
   });
 
 HomeStack.navigationOptions = {
@@ -38,21 +37,21 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const LoginStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Links: LoginScreen,
   },
 
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+LoginStack.navigationOptions = {
+  tabBarLabel: 'Login',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-key' : 'md-key'} />
   ),
 };
 
-LinksStack.path = '';
+LoginStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -72,8 +71,9 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  // LinksStack,
+  LoginStack,
+  SettingsStack
  });
 
 tabNavigator.path = '';

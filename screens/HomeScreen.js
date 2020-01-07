@@ -31,12 +31,6 @@ const menuList = [
     subtitle: 'Customize your app',
     icon: 'cog',
     navigateTo: 'Settings'
-  },
-  {
-    title: 'Sign Up',
-    subtitle: '',
-    icon: 'star',
-    navigateTo: ''
   }
 ]
 export default class HomeScreen extends React.Component {
