@@ -26,7 +26,7 @@ export default class SearchText extends React.Component {
   render() {
     return (
       <View > 
-        <Input  placeholder = 'Search an artist'
+        <Input  placeholder = 'Artist, songs or podcasts'
                 onChangeText={(event) => this.onChange(event)}
                 // ref={this.input}
                 errorStyle={{ color: 'red' }}

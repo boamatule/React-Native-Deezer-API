@@ -24,7 +24,6 @@ export default class StorageScreen extends React.Component {
     const value = await actions.storeData('someKey', data);
 
     if (value) {
-      debugger;
       console.log(value);
   
     }
@@ -38,7 +37,6 @@ export default class StorageScreen extends React.Component {
     const data = await actions.retrieveData('someKey');
 
     if (data) {
-      debugger;
       this.setState({
         value: data.value
       })

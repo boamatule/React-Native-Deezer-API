@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Alert } from 'react-native';
 import { Text, Card, Button, Icon } from  'react-native-elements';
 import { CardList } from '../components/CardList';
-import  SearchText   from '../components/SearchText';
+import SearchText from '../components/SearchText';
 
 import * as actions from '../actions';
 

@@ -11,15 +11,15 @@ import AlbumsScreen from '../screens/AlbumsScreen';
 import AlbumDetailScreen from '../screens/AlbumDetailScreen';
 import StorageScreen from '../screens/StorageScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
+import SignUpSignInScreen from '../screens/SignUpInScreen';
 
 
 const HomeStack = createStackNavigator({
     Home: HomeScreen,
     Albums: AlbumsScreen,
     AlbumDetail: AlbumDetailScreen,
-    Favorite: FavoriteScreen
-
-
+    Favorite: FavoriteScreen,
+    Login: SignUpSignInScreen
   });
 
 HomeStack.navigationOptions = {
@@ -73,8 +73,8 @@ SettingsStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack
-});
+  SettingsStack,
+ });
 
 tabNavigator.path = '';
 
