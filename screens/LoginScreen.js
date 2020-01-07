@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { Input } from 'react-native-elements';
 import InputFieldScreen from '../screens/InputFieldScreen';
-import colors from '../constants/Colors'
+import colors from '../constants/Colors';
+import NextArrowButton from '../components/NextArrowButton'
 
 export default class LoginScreen extends React.Component {
   static navigationOptions = {
@@ -36,6 +37,7 @@ export default class LoginScreen extends React.Component {
 
             />
           </ScrollView>
+          <NextArrowButton />
         </View>
       </KeyboardAvoidingView>
     );
